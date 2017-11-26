@@ -1,0 +1,360 @@
+*, *:before, *:after{
+	box-sizing:border-box;
+}
+body{
+	width:100%;
+	margin:0;
+	position:relative;
+	background-color: #DDDDDD
+}
+.page-elements{
+	height:100vh;
+	border-top:none;
+	position:relative;
+	margin-top:100px;
+	box-shadow:2px 2px 15px black;
+}
+
+.site-wrapper{
+	height:100%;
+	transition: all 1s;
+}
+
+
+nav{
+	top:0;
+	margin:0;
+	padding:0;
+	width:100%;
+	z-index:1;
+}
+
+body.stickyNav nav{
+	position:fixed;
+}
+
+
+nav > ul{
+display:flex;
+margin:0;
+padding:0;
+list-style-type:none;
+overflow:hidden;
+}
+
+nav > ul > li{
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-color:black;
+	box-shadow:2px 2px 5px black;
+	user-select: none;
+	flex:1 1 50px;
+	opacity:0.9;
+}
+
+
+nav > ul > li:hover{
+	background-color:#222222;
+}
+
+a{
+	color:white;
+	text-decoration: none;
+	display:inline-block;
+	width:100%;
+	transition:0.5s padding;
+	padding:30px;
+	padding-right:0;
+	padding-left:0;
+}
+
+header{
+display:flex;
+background: url("assets/images/carousel/guitar-445387_1920.jpg") bottom center;
+background-size:cover;
+background-repeat:no-repeat;
+background-attachment:fixed;
+z-index: 0;
+overflow:hidden;
+}
+
+
+.landing-page{
+	margin:0;
+	height:90vh;
+}
+
+header > h1{
+	color:white;
+	position:relative;
+	margin:auto;
+	text-align: center;
+	font-size:12.3vw;
+	text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
+
+
+.memberLabel{
+	bottom:0;
+	margin:0;
+	background-color:rgba(0,0,0, 0.8);
+	height:7%;
+	color:white;
+	border:solid black;
+	position:relative;
+	overflow: hidden;
+	transition:all 2s;
+	text-align:center;
+}
+
+.memberLabel > p{
+	position:absolute;
+	margin:auto;
+	margin:0;
+	padding:0;
+	margin-top: 7vh;
+}
+
+.member-label-active{
+	height:100%;
+}
+
+
+.about-page{
+	border:solid;
+	width:100%;
+	height:100%;
+	margin:auto;
+	display:flex;
+	margin-top:10px;
+	overflow:hidden;
+	box-shadow:5px 5px 15px black;
+}
+
+.about-page > h2{
+	text-align:center;
+	position:absolute;
+	background-color: red;
+	z-index:1;
+}
+
+.about-page > .bandMember{
+	position:relative;
+	flex:1 1 20px;
+	border-right:solid 1px;
+	text-align:center;
+	max-width:100%;
+	transition:all 1.2s;
+	height:100vh;
+	background-size:cover;
+	font-size:1.5vw;
+}
+
+
+
+#Damien{
+background: url('assets/images/d-guitarr.jpg') center;
+}
+
+#Patrick{
+background: url('assets/images/p-guitar.jpg') center;
+}
+
+#Nicholas{
+background: url('assets/images/n-keyboard.jpg') center;
+}
+
+#David{
+background: url('assets/images/d-drums.jpg') center;
+}
+
+
+.about-page > .band-active{
+	flex:5 5 20px;
+}
+
+.label-active{
+	height:100%;
+	background-color:rgba(0,0,0, 0.9);
+}
+
+.gallery-page{
+background-color:#353535;
+}
+
+.gallery-photos{
+	margin-top:10px;
+	border:solid;
+	display:flex;
+	height:100%;
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    margin-bottom:auto;
+    }
+
+.gallery-photo{
+	border:solid 1px;
+	flex: 1 1 33%;
+		background-size: cover;
+		background-position: center;
+
+}
+.gallery-photo *{
+	background-repeat:no-repeat;
+}
+
+.gallery-photo[data-gallery-index = "1"]{
+	background-image:url('assets/images/gallery-images/fire-orange-emergency-burning.jpg');
+}
+
+.gallery-photo[data-gallery-index = "2"]{
+	background-image:url('assets/images/gallery-images/air-bubbles-diving-underwater-blow-62307.jpeg');
+}
+
+.gallery-photo[data-gallery-index = "3"]{
+	background-image:url('assets/images/gallery-images/pexels-photo-457713.jpeg');
+}
+
+.gallery-photo[data-gallery-index = "4"]{
+	background-image:url('assets/images/gallery-images/pexels-photo-314726.jpeg');
+}
+
+.gallery-photo[data-gallery-index = "5"]{
+	background-image:url('assets/images/gallery-images/drought-aridity-dry-earth.jpg');
+}
+
+.gallery-photo[data-gallery-index = "6"]{
+	background-image:url('assets/images/gallery-images/pexels-photo-173292.jpeg');
+}
+
+.gallery-photo[data-gallery-index = "7"]{
+	background-image:url('assets/images/gallery-images/pexels-photo-176851.jpeg');
+}
+
+.gallery-photo[data-gallery-index = "8"]{
+	background-image:url('assets/images/gallery-images/pexels-photo-672112.jpeg');
+}
+
+.gallery-photo[data-gallery-index = "9"]{
+	background-image:url('assets/images/gallery-images/pexels-photo-139303.jpeg');
+}
+
+
+.contact-page{
+	background-color: #A1B2C3;
+	height:100vh;
+	text-align:center;
+}
+
+.contact-page > h3{
+		border-bottom:solid 1px black;
+		background-color:#ffbc4d;
+		font-size: 3.5vw;
+		padding:20px;
+		color:black;
+}
+
+.contact-page > form{
+	border:solid;
+	width: 70vw;
+	margin: 0 auto;
+	border:none;
+}
+
+.contact-page > form > *{
+	box-sizing:border-box;
+	width:80%;
+	max-width:500px;
+	padding:15px;
+	margin:2px;
+	border:solid 2px;
+	border-radius:5px 5px 5px 5px;
+}
+
+.super{
+	position:absolute;
+	text-align:center;
+	width:100%;
+	font-size:5vw;
+	bottom:0;
+}
+
+.typing-dash{
+	font-size:100%;
+	position:relative;
+	left:-1.5vw;
+	bottom:2px;
+}
+
+.changeable-letters{
+	border-bottom:solid 1px red;
+	border-spacing:10px 50px;
+	border-bottom-width: 4px
+}
+
+
+.footer{
+	height:10vh;
+	background-color: #ACCDDD;
+	text-align:center;
+	font-size:2vw;
+}
+
+.side-menu{
+	position:fixed;
+	top:0;
+	height:100vh;
+
+	background-color: rgba(0, 0, 0, 0.8);
+	transform:translate(-100%, 0);
+	transition: all 1s;
+	overflow:hidden;
+}
+
+.side-menu-active{
+	transform:translate(0, 0);
+	z-index: 6;
+}
+
+
+.side-menu > *{
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.overlay{
+	width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0,0,0,0.0);
+    z-index: 1;
+    position:absolute;
+    transition: all 1s;
+    display:none;
+}
+.overlay-active{
+	display: initial;
+	background-color: rgba(0,0,0,0.7);
+}
+
+.side-menu > ul{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+
+}
+
+.side-menu > ul > li a{
+		width:100%;
+		font-size:2vw;
+		padding:20px;
+}
+
+.socials{
+	position:absolute;
+	bottom:0;
+	right:0;
+}
