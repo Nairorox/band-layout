@@ -70,14 +70,14 @@ navbar.initPosX = navbar.offsetTop;
 
 function stickyNav(){
 	if(window.scrollY > navbar.initPosX){ 
-	aboutPage.style.marginTop = `${navbar.offsetHeight + 10}px`;
+	aboutPage.style.marginTop = `${navbar.offsetHeight + 50}px`;
 		body.classList.add('stickyNav');
 		//body.style.paddingTop = `${navbar.offsetHeight}px`;
 	}
 	
 	else if(window.scrollY <= navbar.initPosX){
 		body.classList.remove('stickyNav');
-		aboutPage.style.marginTop = `10px`;
+		aboutPage.style.marginTop = `50px`;
 	}
 }
 
@@ -142,8 +142,6 @@ finished: true,
 							typing.finished = true;
 							clearInterval(typingNow)
 							setTimeout(function(){
-								console.log(typing.curIndex);
-								console.log(typingWords.length);
 								typing.curIndex < typingWords.length-1 ? typing.curIndex++ : typing.curIndex = 0;
 								typing.type(typable, typingWords[typing.curIndex]);
 							}, 700);
@@ -159,7 +157,6 @@ finished: true,
 typingWords = ['important','like us','the best','super','great','awesome', 'perfect'];
 
 typing.type(typable, typingWords[0]);
-//type(typable, 'JANUSZE');;
 document.addEventListener('scroll', stickyNav);
 document.addEventListener('keyup', sideMenuActivate)
 
