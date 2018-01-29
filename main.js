@@ -8,7 +8,7 @@ const typable = document.querySelector('.typable');
 let pageElementsPos = Array.from(document.querySelectorAll('.page-elements')).map(element => element.offsetTop);
 let last;
 let lastLabel;
-const typingWords = ['important', 'like us', 'the best', 'super', 'great', 'awesome', 'perfect'];
+const typingWords = [ 'best', 'super', 'great', 'awesome', 'perfect'];
 
 function showMember() {
   const memberLabel = this.querySelector('.memberLabel');
@@ -66,7 +66,7 @@ navbar.initPosX = navbar.offsetTop;
 
 
 function stickyNav() {
-  if (window.scrollY > navbar.initPosX) {
+  if (window.scrollY > navbar.initPosX && window.innerWidth > 600) {
     if(body.classList.contains('stickyNav')){return}
       aboutPage.style.marginTop = `${navbar.offsetHeight + 50}px`;
       body.classList.add('stickyNav');

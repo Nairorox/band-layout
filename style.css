@@ -115,9 +115,6 @@ header > h1{
 	margin-top: 7vh;
 }
 
-.member-label-active{
-	height:100%;
-}
 
 .about-page{
 	-webkit-transform: translateZ(0);
@@ -273,7 +270,7 @@ form > textarea{
 }
 
 
-.footer{
+footer{
 	height:10vh;
 	background-color: #ACCDDD;
 	text-align:center;
@@ -335,4 +332,79 @@ padding:20px;
 	position:absolute;
 	bottom:0;
 	right:0;
+}
+ .member-label-active{
+	height:100%;
+}
+
+@media screen and (max-width: 680px) {
+	.side-menu, .overlay{
+		display:none;
+	}
+
+	.page-elements{
+		height:100vh;
+	}
+
+	.about-page{
+		display:block;
+	}
+
+	.memberLabel{
+		font-size:3.5vw;
+		height:20%;
+	}
+
+
+	.memberLabel > p {
+		margin-top:4vh;
+		font-size:1.5vh;
+	}
+
+	.gallery-photos{
+		flex-direction:column;
+		flex-wrap:nowrap;
+	}
+
+
+
+	.about-page > .bandMember{
+		flex:0;
+		height:25%;
+	}	
+
+		
+	.navigation ul{
+		display:block;
+		position:initial;
+	}
+	.navigation ul > li > a{
+		font-size: 5vw;
+	}
+
+	 .member-label-active{
+		height:100%;
+	}
+
+	.contact-page{
+		height:80vh;
+	}
+
+	.contact-page > form{
+		width:100%;
+	}
+	.contact-page > form > *{
+		width:100%;
+		border-radius:0;
+		margin:0;
+		height:10vh;
+		border:0;
+		margin-top:20px;
+		box-shadow: 0px 1px 4px black;
+	}
+	.footer{
+		height:20vh;
+		width:100%;
+		font-size:5vw;
+	}
 }
