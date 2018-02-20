@@ -10,7 +10,7 @@ body{
 	background-color: #DDDDDD
 }
 .page-elements{
-	height:100vh;
+	height:90vh;
 	width:100%;
 	border-top:none;
 	position:relative;
@@ -86,7 +86,6 @@ background-attachment:fixed;
 
 .landing-page{
 	margin:0;
-	height:90vh;
 }
 
 header > h1{
@@ -132,7 +131,7 @@ header > h1{
 	border-right:solid 1px;
 	text-align:center;
 	transition:all 0.8s;
-	height:100vh;
+	height:100%;
 	background-size:cover;
 	font-size:1.5vw;
 	background-repeat: no-repeat;
@@ -140,19 +139,19 @@ header > h1{
 }
 
 #Damien{
-	background-image: url('assets/images/d-guitarr.jpg') ;
+	background-image: url('../images/d-guitarr.jpg') ;
 }
 
 #Patrick{
-	background-image: url('assets/images/p-guitar.jpg') ;
+	background-image: url('../images/p-guitar.jpg') ;
 }
 
 #Nicholas{
-	background-image: url('assets/images/n-keyboard.jpg') ;
+	background-image: url('../images/n-keyboard.jpg') ;
 }
 
 #David{
-	background-image: url('assets/images/d-drums.jpg') ;
+	background-image: url('../images/d-drums.jpg') ;
 }
 
 
@@ -180,39 +179,39 @@ header > h1{
 }
 
 .gallery-photo[data-gallery-index = "0"]{
-	background-image:url('assets/images/gallery-images/fire-orange-emergency-burning.jpg');
+	background-image:url('../images/gallery-images/fire-orange-emergency-burning.jpg');
 }
 
 .gallery-photo[data-gallery-index = "1"]{
-	background-image:url('assets/images/gallery-images/air-bubbles-diving-underwater-blow-62307.jpeg');
+	background-image:url('../images/gallery-images/air-bubbles-diving-underwater-blow-62307.jpeg');
 }
 
 .gallery-photo[data-gallery-index = "2"]{
-	background-image:url('assets/images/gallery-images/pexels-photo-457713.jpeg');
+	background-image:url('../images/gallery-images/pexels-photo-457713.jpeg');
 }
 
 .gallery-photo[data-gallery-index = "3"]{
-	background-image:url('assets/images/gallery-images/pexels-photo-314726.jpeg');
+	background-image:url('../images/gallery-images/pexels-photo-314726.jpeg');
 }
 
 .gallery-photo[data-gallery-index = "4"]{
-	background-image:url('assets/images/gallery-images/drought-aridity-dry-earth.jpg');
+	background-image:url('../images/gallery-images/drought-aridity-dry-earth.jpg');
 }
 
 .gallery-photo[data-gallery-index = "5"]{
-	background-image:url('assets/images/gallery-images/pexels-photo-173292.jpeg');
+	background-image:url('../images/gallery-images/pexels-photo-173292.jpeg');
 }
 
 .gallery-photo[data-gallery-index = "6"]{
-	background-image:url('assets/images/gallery-images/pexels-photo-176851.jpeg');
+	background-image:url('../images/gallery-images/pexels-photo-176851.jpeg');
 }
 
 .gallery-photo[data-gallery-index = "7"]{
-	background-image:url('assets/images/gallery-images/pexels-photo-672112.jpeg');
+	background-image:url('../images/gallery-images/pexels-photo-672112.jpeg');
 }
 
 .gallery-photo[data-gallery-index = "8"]{
-	background-image:url('assets/images/gallery-images/pexels-photo-139303.jpeg');
+	background-image:url('../images/gallery-images/pexels-photo-139303.jpeg');
 }
 
 .contact-page{

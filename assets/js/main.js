@@ -5,31 +5,36 @@ const siteWrapper = document.querySelector('.site-wrapper');
 const aboutPage = document.querySelector('.about-page');
 const typingDash = document.querySelector('.typing-dash');
 const typable = document.querySelector('.typable');
-let pageElementsPos = Array.from(document.querySelectorAll('.page-elements')).map(element => element.offsetTop);
-let last;
+const galleryPhotos = document.querySelectorAll('.gallery-photo');
+let pageElementsPos = Array.from(document.querySelectorAll('.page-elements')).map(element => element.offsetTop - navbar.offsetHeight);
+let lastMember;
 let lastLabel;
 const typingWords = [ 'best', 'super', 'great', 'awesome', 'perfect'];
 
+let changerLeft;
+let changerRight;
+let currentGalleryIndex;
+
 function showMember() {
   const memberLabel = this.querySelector('.memberLabel');
-  if (last && this !== last) {
-    last.classList.remove('band-active');
+  if (lastMember && this !== lastMember) {
+    lastMember.classList.remove('band-active');
     this.classList.add('band-active');
     lastLabel.classList.remove('member-label-active');
     memberLabel.classList.add('member-label-active');
   } 
-  else if (this === last) {
+  else if (this === lastMember) {
     this.classList.remove('band-active');
     memberLabel.classList.remove('member-label-active');
     lastLabel = null;
-    last = null;
+    lastMember = null;
     return;
   }
   else {
     this.classList.add('band-active');
     memberLabel.classList.add('member-label-active');
   }
-  last = this;
+  lastMember = this;
   lastLabel = memberLabel;
 }
 
@@ -83,20 +88,27 @@ const sideMenu = {
   element: document.querySelector('.side-menu'),
   overlay: document.querySelector('.overlay'),
   active: false,
-  hide() {
-    sideMenu.element.classList.remove('side-menu-active');
-    siteWrapper.classList.remove('site-wrapper-side-active');
-    sideMenu.overlay.classList.remove('overlay-active');
-    sideMenu.active = false;
+  hidePhotoGallery(){
+    while(sideMenu.overlay.children.length > 0){
+      sideMenu.overlay.removeChild(sideMenu.overlay.children[0]);
+    }
+  },
+  hide(e) {
+    if((e && e.target === this) || !e){
+      sideMenu.element.classList.remove('side-menu-active');
+      siteWrapper.classList.remove('site-wrapper-side-active');
+      sideMenu.overlay.classList.remove('overlay-active');
+      sideMenu.active = false;
+      sideMenu.hidePhotoGallery();
+    }
   },
   toggleView() {
-    const overlay = document.querySelector('.overlay');
     if (this.active === false) {
+      this.hidePhotoGallery();
       this.element.classList.add('side-menu-active');
       siteWrapper.classList.add('site-wrapper-side-active');
-      overlay.classList.add('overlay-active');
+      this.overlay.classList.add('overlay-active');
       this.active = true;
-      overlay.addEventListener('click', this.hide);
     } else {
       this.hide();
     }
@@ -140,6 +152,58 @@ const typing = {
     }
   },
 };
+let changePhotoTimeout; //to closure
+function changePhoto(direction){
+  clearTimeout(changePhotoTimeout);
+  let activePhoto = document.querySelector('.photo-active');
+  if(this === changerRight || direction === 'r'){
+    currentGalleryIndex < galleryPhotos.length -1 ? currentGalleryIndex += 1 : currentGalleryIndex = 0;
+  }
+  else if(this === changerLeft || direction === 'l'){
+    currentGalleryIndex > 0 ? currentGalleryIndex -= 1 : currentGalleryIndex = galleryPhotos.length - 1;
+    }
+    activePhoto.classList.add('photo-changing');
+   changePhotoTimeout = setTimeout(function(){
+      activePhoto.style.background = window.getComputedStyle(galleryPhotos[currentGalleryIndex]).background;
+      activePhoto.classList.remove('photo-changing');
+  }, 300);
+}
+
+function showGallery(){
+  sideMenu.overlay.classList.add('overlay-active');
+  let copiedPhoto = this.cloneNode(true)
+  copiedPhoto.classList.add('photo-active')
+  changerLeft = document.createElement('div');
+  changerRight = document.createElement('div');
+  currentGalleryIndex = Number(this.dataset.galleryIndex);
+  changerLeft.innerText = '⇦';
+  changerLeft.classList.add('photo-changer');
+  changerLeft.classList.add('photo-changer--left');
+  changerRight.innerText = '⇨'
+  changerRight.classList.add('photo-changer');
+  changerRight.classList.add('photo-changer--right');
+  sideMenu.overlay.appendChild(copiedPhoto);
+  copiedPhoto.appendChild(changerLeft);
+  copiedPhoto.appendChild(changerRight);
+
+  document.querySelectorAll('.photo-changer').forEach(changer => {
+    changer.addEventListener('click', changePhoto);
+  });
+      document.addEventListener('keydown', function(e){
+      if(document.querySelector('.photo-active')){
+        if(e.key.toLowerCase() === 'a' || e.key.toLowerCase() === 'arrowleft'){
+          changePhoto('l');
+        }
+        else if(e.key.toLowerCase() === 'd' || e.key.toLowerCase() === 'arrowright'){
+          changePhoto('r');
+        }
+      }
+    });
+}
+
+galleryPhotos.forEach((photo) => {
+  photo.addEventListener('click', showGallery);
+})
 
 typing.type(typable, typingWords[0]);
 document.addEventListener('scroll', stickyNav);
@@ -157,4 +221,5 @@ document.querySelectorAll('[data-index]').forEach((list) => {
 setInterval(() => {
   typingDash.style.visibility = typingDash.style.visibility === 'hidden' ? '' : 'hidden';
 }, 500);
-// sticky nav at resize
+
+sideMenu.overlay.addEventListener('click', sideMenu.hide);
